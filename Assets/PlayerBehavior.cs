@@ -1,23 +1,33 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerBehavior : MonoBehaviour
+public class playerMovement : MonoBehaviour
 {
+<<<<<<< Updated upstream
     // movement horizontal
     float mH;
     float speed = 5f;
     // Start is called before the first frame update
+=======
+    public float speed = 3f;
+    public float jumpHeight = 5f;
+    public Rigidbody2D rb;
+
+>>>>>>> Stashed changes
     void Start()
     {
-        
+        rb = GetComponent<Rigidbody2D>();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        mH = Input.GetAxis("Horizontal");
+        float horizontalInput = Input.GetAxis("Horizontal");
+        transform.position = new Vector3(transform.position.x + horizontalInput * speed * Time.deltaTime, transform.position.y, 0);
 
-        transform.position = new Vector3(transform.position.x + mH * speed * Time.deltaTime, transform.position.y);
+        if (Input.GetButtonDown("Jump") && Mathf.Abs(rb.velocity.y) < 0.01f)
+        {
+            // Jump only when the vertical velocity is close to zero (grounded).
+            rb.velocity = new Vector3(rb.velocity.x, jumpHeight, 0);
+        }
+
     }
 }
