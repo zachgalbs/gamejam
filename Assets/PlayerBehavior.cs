@@ -2,17 +2,11 @@ using UnityEngine;
 
 public class playerMovement : MonoBehaviour
 {
-<<<<<<< Updated upstream
-    // movement horizontal
     float mH;
     float speed = 5f;
-    // Start is called before the first frame update
-=======
-    public float speed = 3f;
     public float jumpHeight = 5f;
     public Rigidbody2D rb;
 
->>>>>>> Stashed changes
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
