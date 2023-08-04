@@ -23,5 +23,14 @@ public class PlayerMovement : MonoBehaviour
             rb.velocity = new Vector3(rb.velocity.x, jumpHeight, 0);
         }
 
+
+
+        if (Input.GetButtonDown("Submit"))
+        {
+            transform.position = new Vector3(-2, 0, 0);
+        }
+
+
+
     }
 }
