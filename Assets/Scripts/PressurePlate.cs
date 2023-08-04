@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PressurePlaye : MonoBehaviour
 {
+    public GameObject player;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,7 +21,7 @@ public class PressurePlaye : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("ball"))
         {
-            Debug.Log("collision");
+            player.transform.position = new Vector3(9, -2, 0);
         }
         
     }

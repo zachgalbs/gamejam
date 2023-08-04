@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    float mH;
     float speed = 5f;
     public float jumpHeight = 5f;
     public Rigidbody2D rb;
@@ -22,15 +21,6 @@ public class PlayerMovement : MonoBehaviour
             // Jump only when the vertical velocity is close to zero (grounded).
             rb.velocity = new Vector3(rb.velocity.x, jumpHeight, 0);
         }
-
-
-
-        if (Input.GetButtonDown("Submit"))
-        {
-            transform.position = new Vector3(-2, 0, 0);
-        }
-
-
 
     }
 }
