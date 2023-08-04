@@ -5,10 +5,11 @@ using UnityEngine;
 public class PressurePlaye : MonoBehaviour
 {
     public GameObject player;
+    GameObject wall;
     // Start is called before the first frame update
     void Start()
     {
-        
+        wall = GameObject.Find("Wall");
     }
 
     // Update is called once per frame
@@ -22,6 +23,7 @@ public class PressurePlaye : MonoBehaviour
         if (collision.gameObject.CompareTag("ball"))
         {
             player.transform.position = new Vector3(9, -2, 0);
+            Destroy(wall);
         }
         
     }
