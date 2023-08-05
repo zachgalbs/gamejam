@@ -2,9 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PressurePlaye : MonoBehaviour
+public class PressurePlate : MonoBehaviour
 {
     public GameObject player;
+    public CameraBehavior cameraBehavior;
     GameObject wall;
     // Start is called before the first frame update
     void Start()
@@ -22,6 +23,7 @@ public class PressurePlaye : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("ball"))
         {
+            StartCoroutine(cameraBehavior.ShakeScreen(0.2f, 0.05f));
             player.transform.position = new Vector3(9, -2, 0);
             Destroy(wall);
         }
