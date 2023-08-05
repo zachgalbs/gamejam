@@ -5,6 +5,7 @@ using UnityEngine;
 public class PressurePlate : MonoBehaviour
 {
     public GameObject player;
+    public Animator animator;
     public CameraBehavior cameraBehavior;
     GameObject wall;
     // Start is called before the first frame update
@@ -25,7 +26,8 @@ public class PressurePlate : MonoBehaviour
         {
             StartCoroutine(cameraBehavior.ShakeScreen(0.2f, 0.05f));
             player.transform.position = new Vector3(9, -2, 0);
-            Destroy(wall);
+            animator.SetTrigger("plateActive");
+            //Destroy(wall);
         }
         
     }

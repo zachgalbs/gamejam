@@ -30,9 +30,11 @@ public class PlayerMovement : MonoBehaviour
     }
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("ball"))
         {
-            rb.velocity = new Vector3(5, rb.velocity.y, 0);
+            Debug.Log(rb.velocity.x);
+            Debug.Log(rb.velocity);
+            ballrb.velocity = new Vector3(ballrb.velocity.x + 10, ballrb.velocity.y, 0);
         }
     }
 }
