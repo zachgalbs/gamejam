@@ -6,11 +6,14 @@ public class PlayerMovement : MonoBehaviour
     public float jumpHeight = 5f;
     public Rigidbody2D rb;
     public Rigidbody2D ballrb;
+    public Vector3 lastPosition;
+    AbilityBehavior abilityScript;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         ballrb = GameObject.Find("Ball").GetComponent<Rigidbody2D>();
+        abilityScript = GameObject.Find("Ability").GetComponent<AbilityBehavior>();
     }
 
     void Update()
@@ -27,13 +30,21 @@ public class PlayerMovement : MonoBehaviour
         {
             SceneManager.LoadScene("level 1");
         }
+        if (Input.GetKey(KeyCode.S) && abilityScript.ability == true)
+        {
+            Debug.Log("s was hit");
+            lastPosition = new Vector3(transform.position.x, transform.position.y);
+        }
+        if (Input.GetKey(KeyCode.F) && abilityScript.ability == true)
+        {
+            transform.position = lastPosition;
+
+        }
     }
     void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("ball"))
         {
-            Debug.Log(rb.velocity.x);
-            Debug.Log(rb.velocity);
             ballrb.velocity = new Vector3(ballrb.velocity.x + 10, ballrb.velocity.y, 0);
         }
     }

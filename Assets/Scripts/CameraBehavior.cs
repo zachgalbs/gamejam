@@ -9,7 +9,6 @@ public class CameraBehavior : MonoBehaviour
         Vector3 originalPos = transform.localPosition;
 
         float elapsed = 0.0f;
-        Debug.Log(transform.position);
         while (elapsed < duration)
         {
             float x = Random.Range(-1f, 1f) * magnitude;
