@@ -1,13 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-public class AbilityBehavior : MonoBehaviour
+public class Portal4Behavior : MonoBehaviour
 {
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("bruh");
-        Destroy(gameObject);
-        PlayerPrefs.SetInt("MyBool", 1);
+        SceneManager.LoadScene(4);
     }
 }
